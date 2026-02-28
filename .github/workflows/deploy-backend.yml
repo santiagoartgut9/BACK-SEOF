@@ -1,0 +1,77 @@
+name: Deploy Backend to EC2
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+
+env:
+  BACKEND_APP_DIR: ${{ vars.BACKEND_APP_DIR || '/opt/ecommerce' }}
+  BACKEND_PORT: ${{ vars.BACKEND_PORT || '8081' }}
+  EC2_SSH_USER: ${{ vars.EC2_SSH_USER || 'ubuntu' }}
+
+jobs:
+  deploy-backend:
+    name: Build and Deploy Backend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Build JAR
+        run: mvn clean package -DskipTests
+
+      - name: Resolve artifact
+        id: artifact
+        shell: bash
+        run: |
+          JAR_PATH=$(ls target/*.jar | head -n 1)
+          if [ -z "$JAR_PATH" ]; then
+            echo "No se encontró JAR en target/"
+            exit 1
+          fi
+          echo "jar_path=$JAR_PATH" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare SSH
+        shell: bash
+        run: |
+          if [ -z "${{ secrets.EC2_HOST }}" ]; then
+            echo "Falta secret EC2_HOST"
+            exit 1
+          fi
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H "${{ secrets.EC2_HOST }}" >> ~/.ssh/known_hosts
+
+      - name: Upload JAR
+        shell: bash
+        run: |
+          scp -o StrictHostKeyChecking=no \
+            "${{ steps.artifact.outputs.jar_path }}" \
+            "${{ env.EC2_SSH_USER }}@${{ secrets.EC2_HOST }}:${{ env.BACKEND_APP_DIR }}/app.jar"
+
+      - name: Restart service
+        shell: bash
+        run: |
+          ssh -o StrictHostKeyChecking=no "${{ env.EC2_SSH_USER }}@${{ secrets.EC2_HOST }}" << EOF
+            cd "${{ env.BACKEND_APP_DIR }}"
+            pkill -f "app.jar" || true
+            sleep 2
+            nohup java -jar app.jar > backend.log 2>&1 &
+            sleep 6
+            curl -fsS "http://localhost:${{ env.BACKEND_PORT }}/api/users" >/dev/null
+          EOF
+
+      - name: Result
+        run: echo "Backend desplegado en http://${{ secrets.EC2_HOST }}:${{ env.BACKEND_PORT }}"

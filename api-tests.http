@@ -1,0 +1,213 @@
+### Variables
+@baseUrl = http://localhost:8080
+@userId = 0
+@productId = 0
+
+###############################################
+# USUARIOS
+###############################################
+
+### Registrar Usuario 1
+POST {{baseUrl}}/api/users/register
+Content-Type: application/json
+
+{
+  "username": "juan",
+  "email": "juan@example.com",
+  "password": "1234",
+  "fullName": "Juan Pérez"
+}
+
+### Registrar Usuario 2
+POST {{baseUrl}}/api/users/register
+Content-Type: application/json
+
+{
+  "username": "maria",
+  "email": "maria@example.com",
+  "password": "5678",
+  "fullName": "María González"
+}
+
+### Login de Usuario
+POST {{baseUrl}}/api/users/login
+Content-Type: application/json
+
+{
+  "username": "juan",
+  "password": "1234"
+}
+
+### Listar Todos los Usuarios
+GET {{baseUrl}}/api/users
+
+### Obtener Usuario por ID
+GET {{baseUrl}}/api/users/{{userId}}
+
+###############################################
+# PRODUCTOS
+###############################################
+
+### Crear Producto - Laptop
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Laptop Dell Inspiron 15",
+  "description": "Laptop profesional Intel i7, 16GB RAM, 512GB SSD",
+  "price": 1200.00,
+  "stock": 10,
+  "category": "Electrónica"
+}
+
+### Crear Producto - Mouse
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Mouse Logitech MX Master 3",
+  "description": "Mouse inalámbrico ergonómico",
+  "price": 99.99,
+  "stock": 50,
+  "category": "Accesorios"
+}
+
+### Crear Producto - Teclado
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Teclado Mecánico Keychron K2",
+  "description": "Teclado mecánico compacto RGB",
+  "price": 89.99,
+  "stock": 30,
+  "category": "Accesorios"
+}
+
+### Crear Producto - Monitor
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Monitor LG UltraWide 34\"",
+  "description": "Monitor curvo 3440x1440 IPS",
+  "price": 599.99,
+  "stock": 15,
+  "category": "Electrónica"
+}
+
+### Listar Todos los Productos
+GET {{baseUrl}}/api/products
+
+### Obtener Producto por ID
+GET {{baseUrl}}/api/products/{{productId}}
+
+### Filtrar Productos por Categoría
+GET {{baseUrl}}/api/products/category/Electrónica
+
+### Actualizar Stock de Producto
+PUT {{baseUrl}}/api/products/0/stock?stock=100
+
+### Actualizar Precio de Producto
+PUT {{baseUrl}}/api/products/0/price?price=999.99
+
+###############################################
+# CARRITO
+###############################################
+
+### Agregar Laptop al Carrito
+POST {{baseUrl}}/api/cart/add
+Content-Type: application/json
+
+{
+  "userId": 0,
+  "productId": 0,
+  "quantity": 1
+}
+
+### Agregar Mouse al Carrito
+POST {{baseUrl}}/api/cart/add
+Content-Type: application/json
+
+{
+  "userId": 0,
+  "productId": 1,
+  "quantity": 2
+}
+
+### Agregar Monitor al Carrito
+POST {{baseUrl}}/api/cart/add
+Content-Type: application/json
+
+{
+  "userId": 0,
+  "productId": 3,
+  "quantity": 1
+}
+
+### Ver Carrito del Usuario
+GET {{baseUrl}}/api/cart/{{userId}}
+
+### Eliminar Item del Carrito
+DELETE {{baseUrl}}/api/cart/0/item/1
+
+### Vaciar Carrito Completo
+DELETE {{baseUrl}}/api/cart/{{userId}}
+
+###############################################
+# ÓRDENES
+###############################################
+
+### Crear Orden desde Carrito
+POST {{baseUrl}}/api/orders
+Content-Type: application/json
+
+{
+  "userId": 0
+}
+
+### Obtener Orden por ID
+GET {{baseUrl}}/api/orders/0
+
+### Listar Órdenes de un Usuario
+GET {{baseUrl}}/api/orders/user/{{userId}}
+
+### Listar Todas las Órdenes
+GET {{baseUrl}}/api/orders
+
+###############################################
+# PRUEBAS DE VALIDACIÓN (Errores Esperados)
+###############################################
+
+### ERROR: Stock Insuficiente
+POST {{baseUrl}}/api/cart/add
+Content-Type: application/json
+
+{
+  "userId": 0,
+  "productId": 0,
+  "quantity": 999
+}
+
+### ERROR: Usuario No Encontrado
+GET {{baseUrl}}/api/users/999
+
+### ERROR: Producto No Encontrado
+GET {{baseUrl}}/api/products/999
+
+### ERROR: Credenciales Inválidas
+POST {{baseUrl}}/api/users/login
+Content-Type: application/json
+
+{
+  "username": "juan",
+  "password": "wrong_password"
+}
+
+### ERROR: Carrito Vacío (crear orden sin items)
+POST {{baseUrl}}/api/orders
+Content-Type: application/json
+
+{
+  "userId": 1
+}

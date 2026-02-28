@@ -1,0 +1,544 @@
+{
+	"info": {
+		"_postman_id": "ecommerce-monolito-2026",
+		"name": "E-Commerce Monolito - API",
+		"description": "Colección completa de endpoints para el sistema monolítico de e-commerce.\n\n**Base URL:** http://localhost:8081\n\n**Módulos:**\n- Usuarios (registro, login, listado)\n- Productos (CRUD, inventario)\n- Carrito (gestión de compras)\n- Órdenes (procesamiento con transacciones)\n\n**Almacenamiento:** En memoria (ConcurrentHashMap)\n**Framework:** Spring Boot 4.0.3\n**Java:** 17",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "👤 Usuarios",
+			"item": [
+				{
+					"name": "Registrar Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"juan\",\n  \"email\": \"juan@example.com\",\n  \"password\": \"1234\",\n  \"fullName\": \"Juan Pérez\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/register",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "users", "register"]
+						},
+						"description": "Registra un nuevo usuario en el sistema.\n\nValidaciones:\n- Username único\n- Email único"
+					},
+					"response": []
+				},
+				{
+					"name": "Login de Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"juan\",\n  \"password\": \"1234\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/login",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "users", "login"]
+						},
+						"description": "Autenticación simple de usuario.\n\nRetorna los datos del usuario si las credenciales son correctas."
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos los Usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/users",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "users"]
+						},
+						"description": "Obtiene la lista completa de usuarios registrados."
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Usuario por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/{{userId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "users", "{{userId}}"]
+						},
+						"description": "Obtiene los detalles de un usuario específico."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para gestión de usuarios: registro, autenticación y consultas."
+		},
+		{
+			"name": "📦 Productos",
+			"item": [
+				{
+					"name": "Crear Producto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Laptop Dell Inspiron 15\",\n  \"description\": \"Laptop profesional Intel i7, 16GB RAM, 512GB SSD\",\n  \"price\": 1200.00,\n  \"stock\": 10,\n  \"category\": \"Electrónica\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/products",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "products"]
+						},
+						"description": "Crea un nuevo producto en el catálogo.\n\nValidaciones:\n- Precio > 0\n- Stock >= 0"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todos los Productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/products",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "products"]
+						},
+						"description": "Obtiene el catálogo completo de productos."
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Producto por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/products/{{productId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "products", "{{productId}}"]
+						},
+						"description": "Obtiene los detalles de un producto específico."
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar por Categoría",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/products/category/Electrónica",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "products", "category", "Electrónica"]
+						},
+						"description": "Filtra productos por categoría.\n\nCategorías de ejemplo:\n- Electrónica\n- Accesorios\n- Audio"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Stock",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/products/{{productId}}/stock?stock=100",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "products", "{{productId}}", "stock"],
+							"query": [
+								{
+									"key": "stock",
+									"value": "100",
+									"description": "Nueva cantidad en inventario"
+								}
+							]
+						},
+						"description": "Actualiza el stock de un producto.\n\nValidación: stock >= 0"
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Precio",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/products/{{productId}}/price?price=999.99",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "products", "{{productId}}", "price"],
+							"query": [
+								{
+									"key": "price",
+									"value": "999.99",
+									"description": "Nuevo precio"
+								}
+							]
+						},
+						"description": "Actualiza el precio de un producto.\n\nValidación: precio > 0"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para gestión del catálogo de productos e inventario."
+		},
+		{
+			"name": "🛒 Carrito",
+			"item": [
+				{
+					"name": "Agregar Producto al Carrito",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": {{userId}},\n  \"productId\": {{productId}},\n  \"quantity\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/cart/add",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "cart", "add"]
+						},
+						"description": "Agrega un producto al carrito del usuario.\n\nValidaciones:\n- Usuario existe\n- Producto existe\n- Stock suficiente"
+					},
+					"response": []
+				},
+				{
+					"name": "Ver Carrito del Usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/cart/{{userId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "cart", "{{userId}}"]
+						},
+						"description": "Obtiene el carrito completo del usuario con:\n- Items\n- Cantidades\n- Precios\n- Total calculado"
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Item del Carrito",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/cart/{{userId}}/item/{{productId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "cart", "{{userId}}", "item", "{{productId}}"]
+						},
+						"description": "Elimina un producto específico del carrito."
+					},
+					"response": []
+				},
+				{
+					"name": "Vaciar Carrito",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/cart/{{userId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "cart", "{{userId}}"]
+						},
+						"description": "Vacía completamente el carrito del usuario."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para gestión del carrito de compras."
+		},
+		{
+			"name": "📋 Órdenes",
+			"item": [
+				{
+					"name": "Crear Orden desde Carrito",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": {{userId}}\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/orders",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "orders"]
+						},
+						"description": "Crea una orden desde el carrito del usuario.\n\n**Proceso:**\n1. Valida stock de todos los productos\n2. Descuenta inventario\n3. Crea la orden\n4. Limpia el carrito\n\n**Rollback:** Si falla cualquier paso, revierte los cambios."
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Orden por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/orders/{{orderId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "orders", "{{orderId}}"]
+						},
+						"description": "Obtiene los detalles de una orden específica."
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Órdenes de Usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/orders/user/{{userId}}",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "orders", "user", "{{userId}}"]
+						},
+						"description": "Obtiene todas las órdenes de un usuario específico."
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Todas las Órdenes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/orders",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "orders"]
+						},
+						"description": "Obtiene el historial completo de órdenes del sistema."
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints para procesamiento de órdenes con simulación de transacciones."
+		},
+		{
+			"name": "🧪 Flujo Completo E2E",
+			"item": [
+				{
+					"name": "1. Registrar Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"cliente1\",\n  \"email\": \"cliente1@example.com\",\n  \"password\": \"password123\",\n  \"fullName\": \"Cliente Uno\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/register",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "users", "register"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Crear Producto 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Mouse Logitech\",\n  \"description\": \"Mouse inalámbrico\",\n  \"price\": 25.99,\n  \"stock\": 50,\n  \"category\": \"Accesorios\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/products",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "products"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. Crear Producto 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Teclado Mecánico\",\n  \"description\": \"Teclado RGB\",\n  \"price\": 89.99,\n  \"stock\": 30,\n  \"category\": \"Accesorios\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/products",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "products"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4. Agregar Mouse al Carrito",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": 1,\n  \"productId\": 1,\n  \"quantity\": 2\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/cart/add",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "cart", "add"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5. Agregar Teclado al Carrito",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": 1,\n  \"productId\": 2,\n  \"quantity\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/cart/add",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "cart", "add"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6. Ver Carrito",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/cart/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "cart", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7. Crear Orden",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/orders",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "orders"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8. Ver Órdenes del Usuario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/orders/user/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "orders", "user", "1"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "9. Verificar Stock Actualizado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/products",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "products"]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Flujo completo de prueba End-to-End:\n1. Registrar usuario\n2. Crear productos\n3. Agregar al carrito\n4. Ver carrito\n5. Crear orden\n6. Ver órdenes\n7. Verificar stock actualizado"
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8081",
+			"type": "string"
+		},
+		{
+			"key": "userId",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "productId",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "orderId",
+			"value": "1",
+			"type": "string"
+		}
+	]
+}
