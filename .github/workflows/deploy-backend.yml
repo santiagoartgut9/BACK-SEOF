@@ -12,8 +12,8 @@ env:
   BACKEND_APP_DIR: ${{ vars.BACKEND_APP_DIR || '/opt/ecommerce' }}
   BACKEND_PORT: ${{ vars.BACKEND_PORT || '8081' }}
   EC2_SSH_USER: ${{ vars.EC2_SSH_USER || 'ubuntu' }}
-  EC2_HOST: ${{ secrets.EC2_HOST || vars.EC2_HOST }}
-  EC2_INSTANCE_ID: ${{ vars.EC2_INSTANCE_ID || '' }}
+  EC2_HOST: ${{ secrets.EC2_HOST || vars.EC2_HOST || '98.93.175.92' }}
+  EC2_INSTANCE_ID: ${{ vars.EC2_INSTANCE_ID || 'i-0348f34ea246a89e0' }}
 
 jobs:
   deploy-backend:
