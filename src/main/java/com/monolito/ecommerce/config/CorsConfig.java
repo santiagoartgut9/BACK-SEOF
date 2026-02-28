@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * Configuración CORS para permitir solicitudes desde el frontend.
  * 
- * Permite que aplicaciones en otros dominios/puertos accedan a la API.
+ * Permite que aplicaciones en otros dominios/puertos accedan a la API.kkk
  * Incluye:
  * - Desarrollo local: localhost:3000, localhost:3001, localhost:5173
  * - Projjducción: S3 bucket frontend
@@ -24,7 +24,8 @@ public class CorsConfig implements WebMvcConfigurer {
                     "http://localhost:3000", 
                     "http://localhost:3001", 
                     "http://localhost:5173",
-                    "http://local-ecommerce-frontend-414813662494.s3-website-us-east-1.amazonaws.com"
+                    "http://local-ecommerce-frontend-414813662494.s3-website-us-east-1.amazonaws.com",
+                    "*"
                 )
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
