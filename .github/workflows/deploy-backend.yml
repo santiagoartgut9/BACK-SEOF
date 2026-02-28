@@ -110,23 +110,26 @@ jobs:
             sleep 2
             nohup java -jar app.jar > backend.log 2>&1 &
             
-            # Esperar a que Spring Boot arranque completamente (60s)
+            # Esperar a que Spring Boot arranque completamente (45s)
             echo "Esperando a que Spring Boot arranque..."
-            sleep 60
+            sleep 45
             
-            # Healthcheck con reintentos (máx 5 intentos, 10s entre cada uno)
+            # Healthcheck con reintentos (máx 5 intentos, 5s entre cada uno)
             for i in {1..5}; do
               echo "Intento \$i de 5..."
-              if curl -fsS "http://localhost:${{ env.BACKEND_PORT }}/api/users" >/dev/null 2>&1; then
+              if curl -sfS "http://127.0.0.1:${{ env.BACKEND_PORT }}/api/users" >/dev/null 2>&1; then
                 echo "✓ Backend respondiendo correctamente"
                 exit 0
               fi
-              echo "Backend aún no responde, esperando 10s..."
-              sleep 10
+              echo "Backend aún no responde, esperando 5s..."
+              sleep 5
             done
             
-            # Si llegamos aquí, falló el healthcheck
+            # Si llegamos aquí, falló el healthcheck - mostrar detalles
             echo "❌ Backend no respondió después de 5 intentos"
+            echo "Status de puertos abiertos:"
+            netstat -tuln | grep 8081 || echo "Puerto 8081 no encontrado"
+            echo ""
             echo "Últimas líneas del log:"
             tail -50 backend.log
             exit 1
