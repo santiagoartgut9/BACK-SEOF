@@ -5,7 +5,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * Configuración CORS para permitir solicitudes desde el frontend.
+ * Configuración CORnS para permitir solicitudes desde el frontend.
  * 
  * Permite que aplicaciones en otros dominios/puertos accedan a la API.kkk
  * Incluye:
