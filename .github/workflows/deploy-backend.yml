@@ -86,6 +86,14 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H "${{ steps.ec2.outputs.host }}" >> ~/.ssh/known_hosts
 
+      - name: Prepare deployment directory
+        shell: bash
+        run: |
+          ssh -o StrictHostKeyChecking=no "${{ env.EC2_SSH_USER }}@${{ steps.ec2.outputs.host }}" << EOF
+            sudo mkdir -p "${{ env.BACKEND_APP_DIR }}"
+            sudo chown -R ubuntu:ubuntu "${{ env.BACKEND_APP_DIR }}"
+          EOF
+
       - name: Upload JAR
         shell: bash
         run: |
