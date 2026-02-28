@@ -573,3 +573,141 @@ WARNING: Unmatched cancel notification for request id 2
 2026.02.27 21:57:16 WARN  no build target for: C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java
 2026.02.27 21:58:15 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
 2026.02.27 22:07:58 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:17:23 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+2026.02.27 22:17:23 WARN  no build target for: C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java
+2026.02.27 22:17:24 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+2026.02.27 22:17:23 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+2026.02.27 22:17:25 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+2026.02.27 22:17:25 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+Feb 27, 2026 10:17:26 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 21
+2026.02.27 22:17:30 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+2026.02.27 22:17:30 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+2026.02.27 22:17:30 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+Feb 27, 2026 10:17:31 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 27
+2026.02.27 22:17:30 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+2026.02.27 22:17:31 WARN  no build target for: C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java
+2026.02.27 22:17:31 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+Feb 27, 2026 10:17:42 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2026.02.27 22:18:00 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+Feb 27, 2026 10:18:02 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 36
+2026.02.27 22:18:03 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+2026.02.27 22:18:03 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+Feb 27, 2026 10:18:04 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 37
+Feb 27, 2026 10:18:04 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 38
+Feb 27, 2026 10:18:04 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 39
+2026.02.27 22:18:03 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+2026.02.27 22:18:04 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+2026.02.27 22:18:03 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+Feb 27, 2026 10:18:04 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 44
+2026.02.27 22:18:04 WARN  no build target for: C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java
+2026.02.27 22:18:04 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+2026.02.27 22:18:11 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\EcommerceMonolitoApplication.java. Using fallback presentation compiler.
+2026.02.27 22:18:14 WARN  no build target for: C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java
+2026.02.27 22:18:14 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:14 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:16 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:16 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:18 WARN  no build target for: C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java
+2026.02.27 22:18:18 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:22 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:22 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:22 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:24 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:24 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:24 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:24 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:25 WARN  no build target for: C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java
+2026.02.27 22:18:24 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:25 WARN  Running javac-semanticdb failed for file:///C:/Users/AGsan/Downloads/demo/demo/src/main/java/com/monolito/ecommerce/config/CorsConfig.java. Output:
+
+2026.02.27 22:18:26 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:26 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:27 WARN  no build target for: C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java
+2026.02.27 22:18:27 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:27 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:27 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:28 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:28 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:30 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:30 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:31 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:31 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:31 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:31 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:32 WARN  no build target for: C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java
+2026.02.27 22:18:32 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:45 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:45 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:46 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:47 WARN  no build target for: C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java
+2026.02.27 22:18:47 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:47 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:47 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:47 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:47 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:49 WARN  no build target for: C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java
+2026.02.27 22:18:49 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:49 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:49 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:49 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:50 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:50 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:50 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:50 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:50 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:51 WARN  no build target for: C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java
+2026.02.27 22:18:51 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:50 WARN  Running javac-semanticdb failed for file:///C:/Users/AGsan/Downloads/demo/demo/src/main/java/com/monolito/ecommerce/config/CorsConfig.java. Output:
+
+2026.02.27 22:18:51 INFO  Created report: Optional[file:///C:/Users/AGsan/Downloads/demo/demo/src/main/java/com/monolito/ecommerce/config/CorsConfig.java]
+2026.02.27 22:18:51 INFO  QDox parse error in file:///C:/Users/AGsan/Downloads/demo/demo/src/main/java/com/monolito/ecommerce/config/CorsConfig.java (full report at: "C:\Users\AGsan\Downloads\demo\demo\.metals\.reports\metals-full\2026-02-27\r_qdox-error_22-18-51-536.md")
+2026.02.27 22:18:51 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:51 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:51 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:52 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:52 WARN  no build target for: C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java
+2026.02.27 22:18:52 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:52 WARN  Running javac-semanticdb failed for file:///C:/Users/AGsan/Downloads/demo/demo/src/main/java/com/monolito/ecommerce/config/CorsConfig.java. Output:
+
+2026.02.27 22:18:53 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:53 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:53 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:53 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:54 WARN  no build target for: C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java
+2026.02.27 22:18:54 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:54 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:18:54 WARN  Running javac-semanticdb failed for file:///C:/Users/AGsan/Downloads/demo/demo/src/main/java/com/monolito/ecommerce/config/CorsConfig.java. Output:
+
+2026.02.27 22:18:56 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:01 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:01 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:01 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:02 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:02 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:02 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:03 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:02 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:03 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:02 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:03 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:04 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:04 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:04 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:04 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:05 WARN  no build target for: C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java
+2026.02.27 22:19:04 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:06 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:06 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:06 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:06 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:07 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:19:07 WARN  no build target for: C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java
+2026.02.27 22:19:07 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.

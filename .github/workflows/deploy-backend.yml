@@ -8,9 +8,12 @@ on:
   workflow_dispatch:
 
 env:
+  AWS_REGION: ${{ vars.AWS_REGION || 'us-east-1' }}
   BACKEND_APP_DIR: ${{ vars.BACKEND_APP_DIR || '/opt/ecommerce' }}
   BACKEND_PORT: ${{ vars.BACKEND_PORT || '8081' }}
   EC2_SSH_USER: ${{ vars.EC2_SSH_USER || 'ubuntu' }}
+  EC2_HOST: ${{ secrets.EC2_HOST || vars.EC2_HOST }}
+  EC2_INSTANCE_ID: ${{ vars.EC2_INSTANCE_ID || '' }}
 
 jobs:
   deploy-backend:
@@ -42,29 +45,58 @@ jobs:
           fi
           echo "jar_path=$JAR_PATH" >> "$GITHUB_OUTPUT"
 
+      - name: Configure AWS credentials (optional for host resolution)
+        if: env.EC2_HOST == '' && env.EC2_INSTANCE_ID != ''
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Resolve EC2 host
+        id: ec2
+        shell: bash
+        run: |
+          TARGET_HOST="${{ env.EC2_HOST }}"
+
+          if [ -z "$TARGET_HOST" ] && [ -n "${{ env.EC2_INSTANCE_ID }}" ]; then
+            TARGET_HOST=$(aws ec2 describe-instances \
+              --instance-ids "${{ env.EC2_INSTANCE_ID }}" \
+              --region "${{ env.AWS_REGION }}" \
+              --query 'Reservations[0].Instances[0].PublicIpAddress' \
+              --output text)
+          fi
+
+          if [ -z "$TARGET_HOST" ] || [ "$TARGET_HOST" = "None" ]; then
+            echo "No se pudo resolver EC2 host. Configura secrets.EC2_HOST o vars.EC2_HOST o vars.EC2_INSTANCE_ID"
+            exit 1
+          fi
+
+          echo "host=$TARGET_HOST" >> "$GITHUB_OUTPUT"
+
       - name: Prepare SSH
         shell: bash
         run: |
-          if [ -z "${{ secrets.EC2_HOST }}" ]; then
-            echo "Falta secret EC2_HOST"
+          if [ -z "${{ secrets.EC2_SSH_KEY }}" ]; then
+            echo "Falta secret EC2_SSH_KEY"
             exit 1
           fi
           mkdir -p ~/.ssh
           echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H "${{ secrets.EC2_HOST }}" >> ~/.ssh/known_hosts
+          ssh-keyscan -H "${{ steps.ec2.outputs.host }}" >> ~/.ssh/known_hosts
 
       - name: Upload JAR
         shell: bash
         run: |
           scp -o StrictHostKeyChecking=no \
             "${{ steps.artifact.outputs.jar_path }}" \
-            "${{ env.EC2_SSH_USER }}@${{ secrets.EC2_HOST }}:${{ env.BACKEND_APP_DIR }}/app.jar"
+            "${{ env.EC2_SSH_USER }}@${{ steps.ec2.outputs.host }}:${{ env.BACKEND_APP_DIR }}/app.jar"
 
       - name: Restart service
         shell: bash
         run: |
-          ssh -o StrictHostKeyChecking=no "${{ env.EC2_SSH_USER }}@${{ secrets.EC2_HOST }}" << EOF
+          ssh -o StrictHostKeyChecking=no "${{ env.EC2_SSH_USER }}@${{ steps.ec2.outputs.host }}" << EOF
             cd "${{ env.BACKEND_APP_DIR }}"
             pkill -f "app.jar" || true
             sleep 2
@@ -74,4 +106,4 @@ jobs:
           EOF
 
       - name: Result
-        run: echo "Backend desplegado en http://${{ secrets.EC2_HOST }}:${{ env.BACKEND_PORT }}"
+        run: echo "Backend desplegado en http://${{ steps.ec2.outputs.host }}:${{ env.BACKEND_PORT }}"
