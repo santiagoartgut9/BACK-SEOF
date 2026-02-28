@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * Permite que aplicaciones en otros dominios/puertos accedan a la API.
  * Incluye:
  * - Desarrollo local: localhost:3000, localhost:3001, localhost:5173
- * - Producción: S3 bucket frontend
+ * - Projjducción: S3 bucket frontend
  */
 
 
