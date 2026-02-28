@@ -104,43 +104,51 @@ jobs:
       - name: Restart service
         shell: bash
         run: |
-          ssh -o StrictHostKeyChecking=no "${{ env.EC2_SSH_USER }}@${{ steps.ec2.outputs.host }}" << EOF
+          ssh -o StrictHostKeyChecking=no "${{ env.EC2_SSH_USER }}@${{ steps.ec2.outputs.host }}" << 'EOF'
             cd "${{ env.BACKEND_APP_DIR }}"
             pkill -f "app.jar" || true
             sleep 2
             nohup java -jar app.jar > backend.log 2>&1 &
-            echo "PID del proceso: \$!"
+            JAVA_PID=$!
+            echo "Backend iniciado con PID: $JAVA_PID"
             
-            # Esperar a que Spring Boot arranque completamente
-            echo "Esperando a que Spring Boot arranque..."
-            sleep 50
+            # Esperar a que Spring Boot arranque
+            echo "Esperando 55 segundos a que Spring Boot arranque completamente..."
+            sleep 55
             
-            # Healthcheck con reintentos (máx 5 intentos, 5s entre cada uno)
-            for i in {1..5}; do
-              echo "Intento \$i de 5 - Verificando si el backend está respondiendo..."
+            # Verificar que el proceso siga corriendo
+            if ! kill -0 $JAVA_PID 2>/dev/null; then
+              echo "❌ El proceso Java murió. Últimas líneas del log:"
+              tail -30 backend.log
+              exit 1
+            fi
+            
+            # Healthcheck con reintentos
+            for i in 1 2 3 4 5; do
+              echo "Intento $i de 5 - Probando conexión HTTP..."
               
-              # Usar timeout para evitar que curl se quede colgado
-              # Solo verificar que la conexión funciona, no importa el código HTTP
-              response=$(timeout 10 curl -s -w "\n%{http_code}" "http://127.0.0.1:${{ env.BACKEND_PORT }}/api/users" 2>/dev/null)
-              http_code=$(echo "\$response" | tail -n1)
+              HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 5 --max-time 10 "http://127.0.0.1:${{ env.BACKEND_PORT }}/api/users" 2>/dev/null || echo "000")
               
-              if [ ! -z "\$http_code" ] && [ "\$http_code" -lt 500 ]; then
-                echo "✓ Backend respondiendo (HTTP \$http_code)"
+              echo "Código HTTP: $HTTP_CODE"
+              
+              # Cualquier respuesta que no sea 000 (error de conexión) o 5xx es éxito
+              if [ "$HTTP_CODE" != "000" ] && [ "$HTTP_CODE" -lt 500 ]; then
+                echo "✓ Backend respondiendo correctamente (HTTP $HTTP_CODE)"
                 exit 0
               fi
               
-              echo "Status: HTTP \$http_code - Esperando 5s..."
-              sleep 5
+              if [ $i -lt 5 ]; then
+                echo "Esperando 5 segundos antes del siguiente intento..."
+                sleep 5
+              fi
             done
             
-            # Si llegamos aquí, falló el healthcheck
-            echo "❌ Backend no respondió después de 5 intentos"
+            # Si llegamos aquí, el healthcheck falló
             echo ""
-            echo "Últimas líneas del log:"
-            tail -30 backend.log
+            echo "❌ Backend no pasó el healthcheck después de 5 intentos"
             echo ""
-            echo "Procesos corriendo:"
-            ps aux | grep java
+            echo "Log completo:"
+            cat backend.log
             exit 1
           EOF
 
