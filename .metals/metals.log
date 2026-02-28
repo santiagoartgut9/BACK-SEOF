@@ -569,3 +569,7 @@ WARNING: Unmatched cancel notification for request id 2
 2026.02.27 21:32:44 INFO  time: code lens generation in 1.73s
 2026.02.27 21:32:44 INFO  time: code lens generation in 1.73s
 2026.02.27 21:32:44 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 21:57:16 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 21:57:16 WARN  no build target for: C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java
+2026.02.27 21:58:15 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.
+2026.02.27 22:07:58 INFO  no build target found for C:\Users\AGsan\Downloads\demo\demo\src\main\java\com\monolito\ecommerce\config\CorsConfig.java. Using fallback presentation compiler.

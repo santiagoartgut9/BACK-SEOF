@@ -12,6 +12,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * - Desarrollo local: localhost:3000, localhost:3001, localhost:5173
  * - Producción: S3 bucket frontend
  */
+
+
 @Configuration
 public class CorsConfig implements WebMvcConfigurer {
 

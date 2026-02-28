@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Aplicación Principal del Monolito E-Commerce
- * 
+ * dd
  * CARACTERÍSTICAS DE ESTE MONOLITO:
  * - Un único proceso en ejecución (Single Process)
  * - Un único artefacto .jar desplegable
@@ -14,7 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * - Despliegue atómico: todo o nada
  * - SIN comunicación HTTP interna entre módulos
  * - SIN base de datos: almacenamiento en memoria con Map/List
- * 
+ * dddddd
  * ARQUITECTURA MODULAR:
  * - Este NO es un monolito caótico
  * - Está organizado en módulos internos coherentes
