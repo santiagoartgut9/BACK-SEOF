@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 @Service
 public class GoogleTokenVerifierService {
@@ -21,10 +23,37 @@ public class GoogleTokenVerifierService {
 
     public GoogleTokenVerifierService(@Value("${auth.google.client-id}") String clientId,
             @Value("${auth.google.issuer}") String issuer) {
+        List<String> issuers = buildIssuerAllowList(issuer);
         this.verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), GsonFactory.getDefaultInstance())
                 .setAudience(Collections.singletonList(clientId))
-                .setIssuers(Collections.singletonList(issuer))
+                .setIssuers(issuers)
                 .build();
+    }
+
+    private static List<String> buildIssuerAllowList(String configuredIssuer) {
+        if (configuredIssuer == null || configuredIssuer.isBlank()) {
+            return List.of("https://accounts.google.com", "accounts.google.com");
+        }
+
+        String trimmed = configuredIssuer.trim();
+        List<String> issuers = new ArrayList<>();
+        issuers.add(trimmed);
+
+        if (trimmed.startsWith("https://")) {
+            issuers.add(trimmed.substring("https://".length()));
+        } else if (!trimmed.startsWith("http://")) {
+            issuers.add("https://" + trimmed);
+        }
+
+        // Ensure the two canonical issuers are always accepted.
+        if (!issuers.contains("https://accounts.google.com")) {
+            issuers.add("https://accounts.google.com");
+        }
+        if (!issuers.contains("accounts.google.com")) {
+            issuers.add("accounts.google.com");
+        }
+
+        return List.copyOf(issuers);
     }
 
     public VerifiedGoogleUser verify(String idToken) {
